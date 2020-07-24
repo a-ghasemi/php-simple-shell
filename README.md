@@ -38,3 +38,9 @@ changes current route to parrent folder
 shows a list of files and folders in current directory
 > ls -la
 
+## TODO
+
+* Adding long-term history
+* Inserting multi-line commands
+* Light Theme for daylight usage
+* Way to save some commands
