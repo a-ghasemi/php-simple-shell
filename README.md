@@ -44,3 +44,4 @@ shows a list of files and folders in current directory
 * Inserting multi-line commands
 * Light Theme for daylight usage
 * Way to save some commands
+* Relative notifications ( done, error, ... )
