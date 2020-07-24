@@ -27,7 +27,7 @@
             display: block;
             height: 400px;
             background-color: #222;
-            color: #99f;
+            color: #00e9ff;
             font-size: 20px;
             padding: 20px;
             margin-bottom: 20px;        
